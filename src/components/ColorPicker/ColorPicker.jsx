@@ -2,14 +2,20 @@ import React, { Component } from 'react';
 
 export default class ColorPicker extends Component {
   state = {
-    text: ''
+    text: '',
+    backgroundColor: 'black'
   }
 
   handleChange = ({ target }) => {
     this.setState({ text: target.value });
   }
+
+  handleBackground = ({ target }) => {
+    this.setState({ backgroundColor: target.value });
+  }
+
   render() {
-    const { text } = this.state;
+    const { text, backgroundColor } = this.state;
     return (
       <>
         <label htmlFor="text-control">Text</label>
@@ -19,7 +25,19 @@ export default class ColorPicker extends Component {
           value={text}
           onChange={this.handleChange}
         />
-        <div data-testid="display">{text}</div>
+        <label htmlFor="background-color-control">Background Color</label>
+        <input 
+          id="background-color-control"
+          type="color"
+          value={backgroundColor}
+          onChange={this.handleBackground} 
+        />
+        <div 
+          data-testid="display"
+          style={{ backgroundColor }}
+        >
+          {text}
+        </div>
       </>
     );
   }
