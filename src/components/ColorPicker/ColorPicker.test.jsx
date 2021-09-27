@@ -15,4 +15,33 @@ describe('ColorPicker component', () => {
       expect(display).toHaveTextContent('my text');
     });
   });
+
+  it('changes the displays background color on ColorChange', async() => {
+    render(<ColorPicker />);
+    const backgroundColorInput = await screen
+      .findByLabelText('Background Color');
+    const display = await screen.findByTestId('display');
+
+    fireEvent.change(backgroundColorInput, { target: { value: '#FF0000' } });
+    await waitFor(() => {
+      expect(display).toHaveStyle({ 
+        backgroundColor: '#FF0000',
+        color: 'white' 
+      });
+    });
+  });
+
+  it('changes the displays text color', async() => {
+    render(<ColorPicker />);
+    const textColorInput = await screen.findByLabelText('Text Color');
+    const display = await screen.findByTestId('display');
+
+    fireEvent.change(textColorInput, { target: { value: '#00FF00' } });
+    await waitFor(() => {
+      expect(display).toHaveStyle({ 
+        backgroundColor: 'black', 
+        color: '#00FF00' 
+      });
+    });
+  });
 });

@@ -12,8 +12,29 @@ exports[`App component renders App 1`] = `
     type="text"
     value=""
   />
+  <label
+    for="background-color-control"
+  >
+    Background Color
+  </label>
+  <input
+    id="background-color-control"
+    type="color"
+    value="black"
+  />
+  <label
+    for="color-control"
+  >
+    Text Color
+  </label>
+  <input
+    id="color-control"
+    type="color"
+    value="white"
+  />
   <div
     data-testid="display"
+    style="background-color: black; color: white;"
   />
 </DocumentFragment>
 `;
