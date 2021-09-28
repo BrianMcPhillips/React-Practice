@@ -44,4 +44,15 @@ describe('ColorPicker component', () => {
       });
     });
   });
+
+//   it('changes the background of the entire page', async() => {
+//     render(<ColorPicker />);
+//     const textTwoInput = await screen.findByLabelText('Text two');
+//     const display = await screen.findByTestId('display');
+
+//     fireEvent.change(textTwoInput, { target: { value: 'Yo maaaaa' } });
+//     await waitFor(() => {
+//       expect(display).toHaveTextContent('Yo maaaaa');
+//     });
+//   });
 });
