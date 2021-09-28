@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Controls from './Controls/Controls';
 
 export default class ColorPicker extends Component {
   state = {
@@ -23,27 +24,14 @@ export default class ColorPicker extends Component {
     const { text, backgroundColor, color } = this.state;
     return (
       <>
-        <label htmlFor="text-control">Text</label>
-        <input 
-          id="text-control" 
-          type="text"
-          value={text}
-          onChange={this.handleChange}
-        />
-        <label htmlFor="background-color-control">Background Color</label>
-        <input 
-          id="background-color-control"
-          type="color"
-          value={backgroundColor}
-          onChange={this.handleBackground} 
-        />
-        <label htmlFor="color-control">Text Color</label>
-        <input 
-          id="color-control"
-          type="color"
-          value={color}
-          onChange={this.handleColor} 
-        />
+        <Controls 
+          text={text}
+          backgroundColor={backgroundColor}
+          color={color}
+          handleChange={this.handleChange}
+          handleBackground={this.handleBackground}
+          handleColor={this.handleColor}
+        /> 
         <div 
           data-testid="display"
           style={{ 
