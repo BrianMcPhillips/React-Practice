@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Controls from './Controls/Controls';
+import Display from './Display/Display';
 
 export default class ColorPicker extends Component {
   state = {
@@ -32,15 +33,11 @@ export default class ColorPicker extends Component {
           handleBackground={this.handleBackground}
           handleColor={this.handleColor}
         /> 
-        <div 
-          data-testid="display"
-          style={{ 
-            backgroundColor,
-            color 
-          }}
-        >
-          {text}
-        </div>
+        <Display 
+          backgroundColor={backgroundColor}
+          color={color}
+          text={text}
+        /> 
       </>
     );
   }
